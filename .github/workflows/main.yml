@@ -47,6 +47,7 @@ jobs:
           echo "$GITHUB_DUMP_FULL" 
           echo "=== END GITHUB_DUMP ==="
           echo "uname: $(uname -a)"
+          echo "python: $(python3 -V)"
 
 #       # https://github.com/actions/setup-python
 #       - name: Setup Python toolchain
