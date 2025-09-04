@@ -44,7 +44,7 @@ jobs:
         shell: bash
         run: |
           echo "=== GITHUB_DUMP ==="
-          echo "$GITHUB_DUMP_FULL" | python3 -m json.tool 
+          echo "$GITHUB_DUMP_FULL" 
           echo "=== END GITHUB_DUMP ==="
 
 #       # https://github.com/actions/setup-python
