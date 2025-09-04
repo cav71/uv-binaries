@@ -49,6 +49,10 @@ jobs:
           echo "uname: $(uname -a)"
           echo "python: $(python3 -V)"
 
+      - name: Runtime info
+        shell: bash
+        run: python3 /usr/bin/info.pyz
+
 #       # https://github.com/actions/setup-python
 #       - name: Setup Python toolchain
 #         uses: actions/setup-python@v5
