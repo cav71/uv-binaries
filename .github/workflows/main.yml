@@ -57,13 +57,12 @@ jobs:
       - name: Build binaries
         shell: bash
         run: ./build.sh binaries
-#       - name: Archive artifacts
-#         uses: actions/upload-artifact@v4
-#         with:
-#           name: qa-results-${{ matrix.python-version }}-${{ matrix.os }}
-#           path: |
-#             build/qa-${{ matrix.python-version }}-${{ matrix.os}}
-#             dist
-#             .keepme
-#         # Use always() to always run this step to publish test results when there are test failures
-#         if: always()
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: uv-${{ matrix.os }}
+          path: |
+            binaries/*
+        # Use always() to always run this step to publish test results when there are test failures
+        #if: always()
