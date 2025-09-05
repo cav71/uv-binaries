@@ -61,8 +61,8 @@ jobs:
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: uv-${{ matrix.os }}
+          name: uv-${{ env.TAG }}
           path: |
-            binaries/*
+            binaries/linux*/*
         # Use always() to always run this step to publish test results when there are test failures
         #if: always()
