@@ -53,57 +53,10 @@ jobs:
         shell: bash
         run: python3 /usr/bin/info.pyz
 
-#       # https://github.com/actions/setup-python
-#       - name: Setup Python toolchain
-#         uses: actions/setup-python@v5
-#         with:
-#           python-version: ${{ matrix.python-version }}
-# 
-#       - name: Python dependencies
-#         shell: bash
-#         run: |
-#             python -m pip install --upgrade pip
-#             python -m pip install --group dev
-# 
-#       - name: Checks & Balances
-#         shell: bash
-#         run: |
-#             python support/checks-and-balances.py
-# 
-#       - name: Run Python checks (ruff)
-#         shell: bash
-#         run: |
-#             ruff check src tests
-#             ruff format --check src tests
-# 
-#       - name: Run Python checks (mypy)
-#         shell: bash
-#         env:
-#           OUTDIR: build/qa-${{ matrix.python-version }}-${{ matrix.os}}
-#         run: |
-#             mypy src tests \
-#               --no-incremental --xslt-html-report $OUTDIR/mypy
-# 
-#       - name: Run Python checks (tests)
-#         shell: bash
-#         env:
-#           OUTDIR: build/qa-${{ matrix.python-version }}-${{ matrix.os}}
-#         run: |
-#           py.test \
-#               --cov=${{ env.PACKAGE }} \
-#               --cov-report=html:$OUTDIR/coverage --cov-report=xml:$OUTDIR/coverage.xml \
-#               --junitxml=$OUTDIR/junit/junit.xml --html=$OUTDIR/junit/junit.html --self-contained-html \
-#             tests
-# 
-#       # https://github.com/codecov/codecov-action
-#       - name: Upload coverage reports to Codecov
-#         uses: codecov/codecov-action@v5
-#         if: ${{ (matrix.python-version == env.TARGETPY) && (matrix.os == env.TARGETOS) }}
-#         with:
-#           files: $OUTDIR/coverage.xml
-#           token: ${{ secrets.CODECOV_TOKEN }}
-#           verbose: true # optional (default = false)
-# 
+
+      - name: Build binaries
+        shell: bash
+        run: ./build.sh binaries
 #       - name: Archive artifacts
 #         uses: actions/upload-artifact@v4
 #         with:
